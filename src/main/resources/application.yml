@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: Eroch
+  thymeleaf:
+    cache: false
+    model: HTML
+    encoding: UTF-8
+    severlet:
+      context-type: text/html
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://49.234.234.227:3306/eroch?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: Eroch
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+mybatis:
+  type-aliases-package: com.cyf.eroch.web.entity
+  mapper-locations: classpath:mapper/*.xml
+server:
+  port: 80
+  servlet:
+    context-path: /eroch
+logging:
+  file:
+    path: ../logs/eroch.log
+  level.org.springframework.web: DEBUG
+
